@@ -1,0 +1,88 @@
+<!--
+   index.html
+   
+-->
+<!doctype html>
+<html>
+  <head>
+        <meta charset=‘’UTF-8‘’>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>MyTiny Observatory</title>
+
+        <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../static/js/test.js"></script>
+	<script type="text/javascript" src="../static/js/camera.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/css/test.css">
+        <script type="text/javascript">
+    	    var Server = {
+      	           docontent:{{ process_status|tojson }}
+  	    };
+	</script>
+        
+        
+    <style>
+	body {
+		text-align: center;
+		}
+    </style>
+    
+  </head>
+  <body>
+      <script type="text/javascript">
+        //<!CDATA[
+
+        const bodyBgs = [];
+        if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            bodyBgs[0] = "../static/mobile/1.jpg";
+            bodyBgs[1] = "../static/mobile/2.jpg";
+            bodyBgs[2] = "../static/mobile/3.jpg";
+            bodyBgs[3] = "../static/mobile/4.jpg";
+            bodyBgs[4] = "../static/mobile/5.jpg";
+            bodyBgs[5] = "../static/mobile/6.jpg";
+            bodyBgs[6] = "../static/mobile/7.jpg";
+            bodyBgs[7] = "../static/mobile/8.jpg";}
+        else{bodyBgs[0] = "../static/pc/1.jpg";
+            bodyBgs[1] = "../static/pc/2.jpg";
+            bodyBgs[2] = "../static/pc/3.jpg";
+            bodyBgs[3] = "../static/pc/4.jpg";
+            bodyBgs[4] = "../static/pc/5.jpg";
+            bodyBgs[5] = "../static/pc/6.jpg";
+            bodyBgs[6] = "../static/pc/7.jpg";
+            bodyBgs[7] = "../static/pc/8.jpg";}
+
+        const randomBgIndex = Math.round(Math.random() * 7);
+
+        //输出随机的背景图
+        document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ');' +
+            'background-size: cover' +
+            'background-position: center;' + 'background-repeat:no-repeat;' +
+            '}</style>');
+      </script>
+        
+        <h1>Observatory Live Streaming</h1>
+        
+    <div class="class3">
+        <h5>camera Live Streaming</h5>
+        <h3><img src="{{ url_for('Pi_image') }}" width="80%" id="Inside"></h3>
+        <h7> Refresh the Insideimg ==> <input type="button" class="button" onclick="In_image()" value="refresh" /></h7>
+        <div class="one">
+            <a class="control_text">Auto refresh</a>
+            <label for="toggle1">
+                <input type="checkbox" id="toggle1">
+                <span1></span1>
+            </label>
+        </div>
+        <div class="two">
+            <a class="control_text">Black&White mode</a>
+            <label for="toggle2">
+                <input type="checkbox" id="toggle2">
+                <span2></span2>
+            </label>
+        </div>
+    </div>
+        <p> @2020 Designed by lewcherwyn</p>
+        <p> Powered by MJRoBot.org.</p>
+   
+  </body>
+
+</html>
