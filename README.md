@@ -1,4 +1,4 @@
-# raspberryPi-WebCam-Monitor
+# raspberryPi-WebCam-for-VEYE-IMX327
 Use VEYE-MIPI-IMX327 camera and raspberryPi to build a webpage which can show the image captured.  
 使用veye-mipi-imx327模组和树莓派打造一个网页，可以捕捉静态图片
 
